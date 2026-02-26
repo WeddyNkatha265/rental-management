@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #0A0A0F;
+    color: #E0E0F0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111118;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2A2A3A;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C5A028;
+  }
+}
+
+@layer components {
+  .gold-gradient {
+    background: linear-gradient(135deg, #C5A028 0%, #8B6914 100%);
+  }
+
+  .card {
+    @apply bg-estate-800 border border-estate-700 rounded-2xl;
+  }
+
+  .input-base {
+    @apply w-full bg-estate-900 border border-estate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-600
+           focus:outline-none focus:border-gold-500 transition-colors duration-200;
+  }
+
+  .select-base {
+    @apply w-full bg-estate-900 border border-estate-700 rounded-xl px-4 py-2.5 text-sm text-white
+           focus:outline-none focus:border-gold-500 transition-colors duration-200;
+  }
+
+  .btn-gold {
+    @apply gold-gradient text-estate-950 font-bold text-sm px-5 py-2.5 rounded-xl
+           hover:opacity-90 transition-opacity duration-200 cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-gold-500 text-gold-500 font-bold text-sm px-5 py-2.5 rounded-xl
+           hover:bg-gold-500 hover:text-estate-950 transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-danger {
+    @apply bg-red-900/30 border border-red-700 text-red-400 font-bold text-sm px-5 py-2.5 rounded-xl
+           hover:bg-red-800/50 transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 w-full px-4 py-3 rounded-xl mb-1
+           text-sm font-medium text-gray-500
+           hover:text-gold-300 hover:bg-estate-700
+           transition-all duration-200 cursor-pointer border border-transparent;
+  }
+
+  .nav-item.active {
+    @apply text-gold-300 bg-estate-700 border-gold-500/20;
+  }
+
+  .badge-paid {
+    @apply bg-green-900/30 text-green-400 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full;
+  }
+
+  .badge-overdue {
+    @apply bg-red-900/30 text-red-400 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full;
+  }
+
+  .badge-vacant {
+    @apply bg-blue-900/30 text-blue-400 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full;
+  }
+
+  .badge-occupied {
+    @apply bg-amber-900/30 text-amber-400 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full;
+  }
+
+  .table-th {
+    @apply px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-widest;
+  }
+
+  .table-td {
+    @apply px-6 py-4 text-sm;
+  }
+
+  .table-row {
+    @apply border-b border-estate-700 hover:bg-estate-800/50 transition-colors duration-150;
+  }
+}
