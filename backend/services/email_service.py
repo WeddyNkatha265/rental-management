@@ -55,14 +55,14 @@ def _base_template(content: str) -> str:
 <body>
   <div class="wrapper">
     <div class="header">
-      <h1>KAMAU RENTALS</h1>
+      <h1>MURITHI RENTALS</h1>
       <p>PROPERTY MANAGEMENT · KISUMU</p>
     </div>
     <div class="body">
       {content}
     </div>
     <div class="footer">
-      <p>© {date.today().year} Kamau Family Rentals · Kisumu, Kenya</p>
+      <p>© {date.today().year} Murithi Family Rentals · Meru, Kenya</p>
       <p style="margin-top:6px;">This is an automated notification. Do not reply to this email.</p>
     </div>
   </div>
@@ -115,7 +115,7 @@ def send_payment_confirmation(
       </div>
       {ref_row}
       <p style="margin-top:24px;">Thank you for your prompt payment. Please keep this email as your receipt.</p>
-      <p>Best regards,<br><strong>Kamau Rentals Management</strong></p>
+      <p>Best regards,<br><strong>Murithi Rentals Management</strong></p>
     """
     return _send_email(tenant_email, subject, _base_template(content))
 
@@ -152,7 +152,7 @@ def send_payment_reminder(
         <span class="detail-value">{month}</span>
       </div>
       <p style="margin-top:24px;">If you have already paid, please disregard this notice.</p>
-      <p>Thank you,<br><strong>Kamau Rentals Management</strong></p>
+      <p>Thank you,<br><strong>Murithi Rentals Management</strong></p>
     """
     return _send_email(tenant_email, subject, _base_template(content))
 
@@ -164,11 +164,11 @@ def send_welcome_email(
     rent_amount: float,
     move_in_date,
 ) -> bool:
-    subject = f"Welcome to Kamau Rentals — {house_name}"
+    subject = f"Welcome to Murithi Rentals — {house_name}"
     content = f"""
       <h2>Welcome to Your New Home 🏠</h2>
       <p>Dear <strong>{tenant_name}</strong>,</p>
-      <p>We are pleased to welcome you to Kamau Rentals. Your tenancy has been set up successfully.</p>
+      <p>We are pleased to welcome you to Murithi Rentals. Your tenancy has been set up successfully.</p>
       <div class="amount-box">
         <div class="label">Monthly Rent</div>
         <div class="value">KES {rent_amount:,.0f}</div>
@@ -182,7 +182,7 @@ def send_welcome_email(
         <span class="detail-value">{move_in_date}</span>
       </div>
       <p style="margin-top:24px;">Rent is due on the <strong>1st of every month</strong>.</p>
-      <p>Warm regards,<br><strong>Kamau Rentals Management</strong></p>
+      <p>Warm regards,<br><strong>Murithi Rentals Management</strong></p>
     """
     return _send_email(tenant_email, subject, _base_template(content))
 
