@@ -11,7 +11,7 @@ load_dotenv()
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="Kamau Rental Management API",
+    title="Murithi Rental Management API",
     description="Full-featured rental property management system",
     version="1.0.0",
     docs_url="/docs",
@@ -24,6 +24,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:3000",
+        "https://rental-man.netlify.app",
         os.getenv("FRONTEND_URL", "http://localhost:5173"),
     ],
     allow_credentials=True,
