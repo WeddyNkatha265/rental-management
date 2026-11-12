@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy.yml'
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,12 +21,11 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
             cd /root/rental-management/backend
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
+            cd backend
             docker build -t rental-backend:0.0.1 .
             docker stop rental-management-api || true
             docker rm rental-management-api || true
-            docker run -d \
-              --name rental-management-api \
-              --restart unless-stopped \
-              -p 8000:8000 \
-              rental-backend:0.0.1
+
+            docker run -d   --name rental-management-api   -p 8000:8000   --restart always   --add-host=host.docker.internal:host-gateway   --env-file ~/rental-management/backend/.env   rental-backend:0.0.1  

@@ -8,6 +8,7 @@ import toast from 'react-hot-toast'
 const HOUSE_TYPES = [
   { value: 'bedsitter',    label: 'Bedsitter' },
   { value: 'single_room',  label: 'Single Room' },
+  { value: 'one_bedroom',  label: 'One Bedroom'}
 ]
 
 const defaultForm = { name: '', house_type: '', rent_amount: '', floor: '', description: '' }
@@ -77,6 +78,7 @@ export default function HousesPage() {
 
   const bedsitters   = houses.filter(h => h.house_type === 'bedsitter')
   const singleRooms  = houses.filter(h => h.house_type === 'single_room')
+  const oneBedrooms  = houses.filter(h => h.house_type === 'one_bedroom')
   const occupied     = houses.filter(h => h.is_occupied).length
 
   return (
@@ -100,6 +102,7 @@ export default function HousesPage() {
           { label: 'All Units',    count: houses.length,                      color: 'bg-estate-700 text-gray-300' },
           { label: 'Bedsitters',   count: bedsitters.length,                  color: 'bg-amber-900/30 text-amber-400' },
           { label: 'Single Rooms', count: singleRooms.length,                 color: 'bg-blue-900/30 text-blue-400' },
+          { label: 'One Bedrooms', count: oneBedrooms.length,                 color: 'bg-blue-900/30 text-blue-400' },
           { label: 'Occupied',     count: occupied,                           color: 'bg-green-900/30 text-green-400' },
           { label: 'Vacant',       count: houses.length - occupied,           color: 'bg-purple-900/30 text-purple-400' },
         ].map(p => (
@@ -129,6 +132,16 @@ export default function HousesPage() {
           <section>
             <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2">
               <span className="w-6 h-px bg-gold-500/40" /> Single Rooms ({singleRooms.length})
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {singleRooms.map(h => <HouseCard key={h.id} house={h} onEdit={openEdit} onDelete={handleDelete} />)}
+            </div>
+          </section>
+
+          {/* One Bedrooms Section */}
+          <section>
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-gold-500/40" /> One Bedrooms ({singleRooms.length})
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {singleRooms.map(h => <HouseCard key={h.id} house={h} onEdit={openEdit} onDelete={handleDelete} />)}
@@ -177,7 +190,7 @@ function HouseCard({ house, onEdit, onDelete }) {
       </div>
 
       <p className="text-xs text-gray-600 uppercase tracking-wider mb-1">
-        {house.house_type === 'bedsitter' ? 'Bedsitter' : 'Single Room'}
+        {house.house_type === 'bedsitter' ? 'Bedsitter' : 'One Bedroom'}
         {house.floor && <span> · {house.floor} floor</span>}
       </p>
       <p className="font-serif text-gold-300 text-lg mb-2">{house.name}</p>
