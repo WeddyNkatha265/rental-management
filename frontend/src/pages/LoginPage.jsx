@@ -95,7 +95,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-center text-xs text-gray-700 mt-6">
-          Secured portal · Kamau Family Rentals · Kisumu
+          Secured portal · Murithi Family Rentals · Meru
         </p>
       </div>
     </div>

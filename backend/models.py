@@ -11,6 +11,7 @@ import enum
 class HouseType(str, enum.Enum):
     bedsitter = "bedsitter"
     single_room = "single_room"
+    one_bedroom = "one_bedroom"
 
 
 class PaymentMethod(str, enum.Enum):

@@ -80,7 +80,7 @@ export default function DashboardPage() {
       <div className="flex items-start justify-between mb-8">
         <div>
           <h1 className="text-3xl font-serif text-gold-300 font-light">Estate Overview</h1>
-          <p className="text-gray-600 text-sm mt-1">{monthName} · Kisumu, Kenya</p>
+          <p className="text-gray-600 text-sm mt-1">{monthName} · Meru, Kenya</p>
         </div>
         <button onClick={load} className="btn-outline flex items-center gap-2 text-xs py-2 px-4">
           <RefreshCw size={13} /> Refresh

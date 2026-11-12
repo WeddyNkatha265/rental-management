@@ -18,7 +18,7 @@ def seed():
         admin = models.Admin(
             username="admin",
             email="admin@kamaurentals.com",
-            full_name="Kamau Admin",
+            full_name="Murithi Admin",
             hashed_password=hash_password("admin123"),
         )
         db.add(admin)
@@ -40,6 +40,9 @@ def seed():
         {"name": "Single S3", "house_type": "single_room", "rent_amount": 5500, "floor": "Ground"},
         {"name": "Single S4", "house_type": "single_room", "rent_amount": 5500, "floor": "First"},
         {"name": "Single S5", "house_type": "single_room", "rent_amount": 5500, "floor": "First"},
+        # One BedRooms
+        {"name": "Onebedroom E1", "house_type": "one_bedroom", "rent_amount": 9000, "floor": "Ground"},
+        {"name": "Onebedroom E2", "house_type": "one_bedroom", "rent_amount": 9000, "floor": "Ground"},
     ]
 
     created = 0
