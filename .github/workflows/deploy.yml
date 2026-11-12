@@ -17,13 +17,13 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
-            cd /home/rental-management/backend
+            cd /root/rental-management/backend
             git pull origin main
             docker build -t rental-backend:0.0.1 .
-            docker stop rental-backend || true
-            docker rm rental-backend || true
+            docker stop rental-management-api || true
+            docker rm rental-management-api || true
             docker run -d \
-              --name rental-backend \
+              --name rental-management-api \
               --restart unless-stopped \
               -p 8000:8000 \
               rental-backend:0.0.1
