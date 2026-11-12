@@ -1,4 +1,4 @@
-# 🏠 Kamau Rental Management System
+# 🏠 Murithi Rental Management System
 ### Full-Stack · React + FastAPI + PostgreSQL
 
 ---
@@ -162,7 +162,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=yourgmail@gmail.com
 SMTP_PASSWORD=your-gmail-app-password
-EMAIL_FROM_NAME=Kamau Rentals
+EMAIL_FROM_NAME=Murithi Rentals
 ```
 
 > **Gmail App Password Setup:**
@@ -190,7 +190,7 @@ uvicorn main:app --reload --port 8000
 ```bash
 # In a new terminal
 curl http://localhost:8000/
-# Should return: {"message":"Kamau Rental Management API","status":"running"}
+# Should return: {"message":"Murithi Rental Management API","status":"running"}
 
 # View interactive API docs:
 # Open browser → http://localhost:8000/docs
@@ -350,4 +350,4 @@ Edit rent amounts from the Houses page after login.
 
 ---
 
-*Kamau Family Rental Management · Kisumu, Kenya 🇰🇪*
+*Murithi Family Rental Management · Meru, Kenya 🇰🇪*
