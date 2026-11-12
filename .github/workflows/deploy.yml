@@ -1,0 +1,29 @@
+name: Deploy Backend to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH into VPS and Rebuild Docker Container
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            cd /home/rental-management/backend
+            git pull origin main
+            docker build -t rental-backend:0.0.1 .
+            docker stop rental-backend || true
+            docker rm rental-backend || true
+            docker run -d \
+              --name rental-backend \
+              --restart unless-stopped \
+              -p 8000:8000 \
+              rental-backend:0.0.1
